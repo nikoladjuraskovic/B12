@@ -11,7 +11,13 @@ namespace B12
 {
     public partial class Pocetna : System.Web.UI.Page
     {
-
+        /*Ako negde pri pravljenju con stringa dobijete gresku tipa:
+         * keyword not supported, trust server certificate, mozda nije dobar konekcioni string,
+         * treba da izgleda kao ovaj ovde. Problem se resava tako sto poslednju deo treba da izgleda ovako:
+         * TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False
+         * tj sve mora biti spojeno, a NE odvojeno.
+         
+         */
 
         SqlConnection con = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=B12;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         SqlCommand cmd;
