@@ -41,14 +41,22 @@
             
 
             <span>PRIKAZ SEDIŠTA AUTOBUSA:</span>
+            
+
             <asp:Label ID="Label4" runat="server" Text=""></asp:Label>
            
-            <asp:Panel ID="Panel1" runat="server"></asp:Panel>
+            <br />
+            <br />
+            <asp:Panel ID="Panel1" runat="server" CssClass="Seats" BorderColor="Gray"></asp:Panel>
             <br />
             <br />
             <br />
             
-            <asp:Label ID="Label1" runat="server" Text="Broj sedista: "></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="TextBox1" runat="server" ReadOnly="True" Width="202px"></asp:TextBox>
+            <asp:Label ID="Label1" runat="server" Text="Broj sedista: ">
+       
+            </asp:Label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="TextBox1" runat="server" ReadOnly="True" Width="202px"></asp:TextBox>
 
             <br />
             <br />

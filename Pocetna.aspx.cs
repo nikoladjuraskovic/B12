@@ -66,8 +66,30 @@ namespace B12
             
 
             int br = 2;
+            int j = 0;
             for (int i = 1; i < 53; i++)
             {
+                j++;
+                Panel p = new Panel();
+                p.BackColor = Color.FromArgb(173, 216, 230);
+                p.BorderStyle = BorderStyle.Solid;
+                p.BorderWidth = 1;
+                p.BorderColor = Color.Black;
+                p.Width = 47;
+                p.Height = 42;
+                p.HorizontalAlign = HorizontalAlign.Center;
+                p.CssClass = "Seat";
+
+                /*U style.css na dnu koda je pozicioniranje dugmeta sa kodom:
+                 
+                 .Seat div {
+                    display: inline-block;
+                 }
+
+                klasa Seat je data elementu Panel1
+                 */
+
+
                 Button b = new Button();
                 b.Text = br.ToString();
                 b.ID = "Button" + br;
@@ -76,20 +98,34 @@ namespace B12
                 b.ForeColor = Color.White;
                 b.BorderColor = Color.White;
                 b.Click += new EventHandler(sediste_klik);
-                Panel1.Controls.Add(b);
+                //Panel1.Controls.Add(b);
+
+                p.Controls.Add(b);
+                Panel1.Controls.Add(p);
+
                 br++;
                 if (i % 4 == 0)
                 {
+                    j = 0;
                     Literal lit = new Literal();
                     lit.Text = "<br>";
                     Panel1.Controls.Add(lit);
                 }
+                if(j == 2)
+                {
+                    Literal lit2 = new Literal();
+                    lit2.Text = "&emsp;&emsp;&emsp;";
+                    Panel1.Controls.Add(lit2);
+                }
+                
             }
             obojiSedista();
         }
-
+        
         private void sediste_klik(object sender, EventArgs e)
         {
+            // sender je kontrola nad kojom se desava dogadjaj
+            // ovde je to Button
             Label5.Text = "";
             Button btnKlik = sender as Button;
             if (btnKlik.BackColor == Color.Red)
@@ -99,13 +135,13 @@ namespace B12
             }
             TextBox1.Text = btnKlik.Text;
         }
-
+        
         protected void Button1_Click(object sender, EventArgs e)
         {
             if (TextBox1.Text != "" && TextBox2.Text != "" && TextBox3.Text != "")
             {
                 int brSedista = int.Parse(TextBox1.Text);
-                Button sedisteZaRezervaciju = (Button)form1.FindControl("Button" + brSedista);
+                Button sedisteZaRezervaciju = (Button)Panel1.FindControl("Button" + brSedista);
                 sedisteZaRezervaciju.BackColor = Color.Red;
 
                 try
