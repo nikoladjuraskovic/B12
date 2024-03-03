@@ -113,9 +113,26 @@ namespace B12
                 }
                 if(j == 2)
                 {
+                    /*
                     Literal lit2 = new Literal();
                     lit2.Text = "&emsp;&emsp;&emsp;";
+                    Panel1.Controls.Add(lit2);*/
+                    Literal lit2 = new Literal();
+                    if (i == 2)
+                    {
+                        lit2.Text = "<div class=\"white_div\" id=\"upper_gray\"></div>";
+                    }
+                    else if (i == 50)
+                    {
+                        lit2.Text = "<div class=\"white_div\" id=\"lower_gray\"></div>";
+                    }
+                    else
+                    {
+                        lit2.Text = "<div class=\"white_div\"></div>";
+                        //lit2.Text = "&emsp;&emsp;&emsp;";
+                    }
                     Panel1.Controls.Add(lit2);
+
                 }
                 
             }
